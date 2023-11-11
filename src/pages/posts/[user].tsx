@@ -7,6 +7,7 @@ import { IPost } from "@/types/post";
 const Posts = () => {
   const searchParams = useSearchParams();
   const user = searchParams.get("user");
+
   const { sendRequest } = useMakeRequest();
   const hiddenFileInput = useRef<HTMLInputElement>(null);
   const [postData, setPostData] = React.useState({ post: "", image: "" });
@@ -126,7 +127,7 @@ const Posts = () => {
           </form>
           <div>
             <div className="mt-2">
-              <h3>Your posts</h3>
+              <h3 style={{ fontFamily: "Agbalumo" }}>Your posts</h3>
             </div>
             {userPosts.map((post, index) => (
               <Post key={index} post={post.post} image={post.image} />

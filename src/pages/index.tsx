@@ -88,94 +88,100 @@ export default function Home() {
     }
   };
   return (
-    <div className="container-fluid ">
-      <div className="row">
-        <div className="col-7">
-          <h4>Welcome to </h4>
-          <h2>TALOSMART</h2>
-          <h3>Social</h3>
-        </div>
-        <div className="col-5">
-          <div className="card mt-5">
-            <div className="card-header p-0">
-              <ul className="nav nav-tabs">
-                <li
-                  className="nav-item"
-                  onClick={() => setShowLoginOrRegister("login")}
-                >
-                  <a
-                    className={`nav-link ${
-                      showLoginOrRegister === "login" ? "active" : ""
-                    }`}
-                    aria-current="page"
-                    href="#"
-                  >
-                    Login
-                  </a>
-                </li>
-                <li
-                  className="nav-item"
-                  onClick={() => setShowLoginOrRegister("register")}
-                >
-                  <a
-                    className={`nav-link ${
-                      showLoginOrRegister === "register" ? "active" : ""
-                    }`}
-                    href="#"
-                  >
-                    Register
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div
-              className={`card-body ${
-                showLoginOrRegister === "login" ? "" : "d-none"
-              } `}
-            >
-              <AuthForm
-                title="Login to Talosmart social"
-                onChange={loginHandleChange}
-                username={loginData.username}
-                password={loginData.password}
-                onSubmit={loginHandleSubmit}
-              />
-            </div>
-            <div
-              className={`card-body ${
-                showLoginOrRegister === "register" ? "" : "d-none"
-              } `}
-            >
-              <AuthForm
-                title="Create an account on Talosmart social"
-                onChange={registerHandleChange}
-                username={registerData.username}
-                password={registerData.password}
-                onSubmit={registerHandleSubmit}
-              />
+    <>
+      <div className="container-fluid ">
+        <div className="row">
+          <div className="col-7 mt-5 d-flex">
+            <div className="mx-auto mt-4">
+              <h4 className="">Welcome to </h4>
+              <h2 style={{ fontFamily: "Agbalumo", fontSize: 48 }}>
+                TALOSMART
+              </h2>
+              <h3>Social</h3>
             </div>
           </div>
-          <div className="mt-2">
-            {showMessage && (
-              <div
-                className={`alert ${
-                  messageType === "error" ? "alert-danger" : "alert-primary"
-                }  d-flex`}
-                role="alert"
-              >
-                {message}
-                <button
-                  type="button"
-                  className="btn-close ms-auto"
-                  // data-bs-dismiss="alert"
-                  // aria-label="Close"
-                  onClick={() => setShowMessage(false)}
-                ></button>
+          <div className="col-5">
+            <div className="card mt-5">
+              <div className="card-header p-0">
+                <ul className="nav nav-tabs">
+                  <li
+                    className="nav-item"
+                    onClick={() => setShowLoginOrRegister("login")}
+                  >
+                    <a
+                      className={`nav-link ${
+                        showLoginOrRegister === "login" ? "active" : ""
+                      }`}
+                      aria-current="page"
+                      href="#"
+                    >
+                      Login
+                    </a>
+                  </li>
+                  <li
+                    className="nav-item"
+                    onClick={() => setShowLoginOrRegister("register")}
+                  >
+                    <a
+                      className={`nav-link ${
+                        showLoginOrRegister === "register" ? "active" : ""
+                      }`}
+                      href="#"
+                    >
+                      Register
+                    </a>
+                  </li>
+                </ul>
               </div>
-            )}
+              <div
+                className={`card-body ${
+                  showLoginOrRegister === "login" ? "" : "d-none"
+                } `}
+              >
+                <AuthForm
+                  title="Login to Talosmart social"
+                  onChange={loginHandleChange}
+                  username={loginData.username}
+                  password={loginData.password}
+                  onSubmit={loginHandleSubmit}
+                />
+              </div>
+              <div
+                className={`card-body ${
+                  showLoginOrRegister === "register" ? "" : "d-none"
+                } `}
+              >
+                <AuthForm
+                  title="Create an account on Talosmart social"
+                  onChange={registerHandleChange}
+                  username={registerData.username}
+                  password={registerData.password}
+                  onSubmit={registerHandleSubmit}
+                />
+              </div>
+            </div>
+            <div className="mt-2">
+              {showMessage && (
+                <div
+                  className={`alert ${
+                    messageType === "error" ? "alert-danger" : "alert-primary"
+                  }  d-flex`}
+                  role="alert"
+                >
+                  {message}
+                  <button
+                    type="button"
+                    className="btn-close ms-auto"
+                    // data-bs-dismiss="alert"
+                    // aria-label="Close"
+                    onClick={() => setShowMessage(false)}
+                  ></button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
